@@ -39,22 +39,19 @@ function szinValtas(elem){
     modifikalt_elem.css("background", "green")
 }
 
-/*
-function Kattintas(){
-        NEGYZET.on("click", function(){
-            if (){
-                //classAdd
-            }  else {
 
-            }
-            //if(JatekVege()){};
-        };
-      }
+
+function Kattintas(){
+    NEGYZET.on("click", function(){
+        $(NEGYZET.eq()).addClass("negyzet");
+
+        
+        //if(JatekVege()){};
+    });
 }
 
-*/
 
-//function JatekVege(){}
+
 function negyzetgeneralas(){
     const Mezo = $("#palya")
 
