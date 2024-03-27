@@ -33,26 +33,24 @@ function tombLetrhoz(){
 
 
 const NEGYZET = $("kocka"); 
+
 function szinValtas(elem){
-    $(elem).css("background","hotpink")
+    $(elem).css("background","green")
 }
 
-/*
+
+
 function Kattintas(){
-        NEGYZET.on("click", function(){
-            if (){
-                //classAdd
-            }  else {
+    NEGYZET.on("click", function(){
+        $(NEGYZET.eq()).addClass("negyzet");
 
-            }
-            //if(JatekVege()){};
-        };
-      }
+        
+        //if(JatekVege()){};
+    });
 }
 
-*/
 
-//function JatekVege(){}
+
 function negyzetgeneralas(){
     const Mezo = $("#palya")
 
