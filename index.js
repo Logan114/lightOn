@@ -33,8 +33,10 @@ function tombLetrhoz(){
 
 
 const NEGYZET = $("kocka"); 
+
 function szinValtas(elem){
-    $(elem).css("background","hotpink")
+    const modifikalt_elem =$(elem)
+    modifikalt_elem.css("background", "green")
 }
 
 /*
@@ -62,3 +64,5 @@ function negyzetgeneralas(){
     }
 }
 negyzetgeneralas()
+
+szinValtas(".kocka2")

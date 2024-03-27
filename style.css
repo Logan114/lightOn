@@ -4,7 +4,7 @@
 
 body {
 
-    background-color: black;
+    background-color: white;
 }
 
 
@@ -12,9 +12,10 @@ main{
  
 }
 
-#kocka
-h1 {
-    color: aliceblue;
+
+.kocka {
+    color: black;
+    border: 10px solid black;
 }
 
 li {
