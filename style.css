@@ -1,5 +1,50 @@
+<<<<<<< HEAD
 .kocka{
     border: 5px solid black;
     max-width: 10%;
 
+=======
+* {
+  font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif; ;  
+}
+
+body {
+
+    background-color: black;
+}
+
+
+main{
+ 
+}
+
+
+h1 {
+    color: aliceblue;
+}
+
+li {
+    max-width: 200px;
+    color: aliceblue;
+   
+}
+
+p {
+    color:aliceblue;
+    text-align: left;
+}
+
+
+.palya {
+   
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.negyzet {
+    width: 100px;
+    height: 100px;
+    background-color:blue;
+>>>>>>> refs/remotes/origin/main
 }
