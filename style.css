@@ -16,8 +16,9 @@ h1 {
 }
 
 li {
-    max-width: 200px;
+    max-width: 280px;
     color: aliceblue;
+    text-align: center;
    
 }
 
@@ -27,15 +28,23 @@ p {
 }
 
 
-.palya {
+#palya {
    
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
+    gap: 35px;
 }
 
 .negyzet {
     width: 100px;
     height: 100px;
-    background-color:blue;
+    background-color:white;
+}
+
+.kocka {
+    border: solid white;
+    border-width: medium;
+    
+    color: purple;
+    border-radius: 10px;
 }
