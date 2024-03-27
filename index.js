@@ -63,6 +63,6 @@ function negyzetgeneralas(){
         
     }
 }
-negyzetgeneralas()
+
 
 szinValtas(".kocka2")
