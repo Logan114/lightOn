@@ -33,6 +33,9 @@ function tombLetrhoz(){
 
 
 const NEGYZET = $("kocka"); 
+function szinValtas(elem){
+    $(elem).css("background","hotpink")
+}
 
 /*
 function Kattintas(){
@@ -43,10 +46,19 @@ function Kattintas(){
 
             }
             //if(JatekVege()){};
-        });
+        };
+      }
 }
+
 */
 
-
 //function JatekVege(){}
+function negyzetgeneralas(){
+    const Mezo = $("#palya")
 
+    for (let i=0; i<25; i++){
+        $(Mezo).append(`<div class="kocka${i} kocka"><p>${i}</p><br></div>`);
+        
+    }
+}
+negyzetgeneralas()
