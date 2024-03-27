@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-.kocka{
-    border: 5px solid black;
-    max-width: 10%;
-
-=======
 * {
   font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif; ;  
 }
@@ -46,5 +40,4 @@ p {
     width: 100px;
     height: 100px;
     background-color:blue;
->>>>>>> refs/remotes/origin/main
 }
