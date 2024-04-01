@@ -1,8 +1,7 @@
 $("load", function () {
     negyzetGeneralas();
-    tombLetrhoz();
     kattintas();
-   
+    ujKor();
 });
 
 
@@ -15,7 +14,6 @@ function negyzetGeneralas(){
 
     for (let i=0; i<25; i++){
         mezo.append(`<div class="kocka${i} kocka"><p>${i}</p><br></div>`);
-        
     }
 }
 
@@ -23,43 +21,64 @@ function negyzetGeneralas(){
 
 
 
-function tombLetrhoz(){
-    const Tomb = [];
-    for(let i = 0; i < 25; i++){
-        Tomb[i] = i;
-    }
-}
 
 
 
-const NEGYZET = $("kocka"); 
-
-function szinValtas(elem){
-    const modifikalt_elem =$(elem)
-    modifikalt_elem.css("background", "green")
-}
 
 
+function kattintas() {
+    $(".kocka").on("click", function() {
+        $(this).toggleClass("kockaValtozott");
+        
+        let index = $(this).index();
 
-function Kattintas(){
-    NEGYZET.on("click", function(){
-        $(NEGYZET.eq()).addClass("negyzet");
+
+        let sor = Math.floor(index / 5);
+        let oszlop = index % 5;
 
         
-        //if(JatekVege()){};
+        let felsoIndex = (sor - 1) * 5 + oszlop;
+        let alsoIndex = (sor + 1) * 5 + oszlop;
+        let balIndex = sor * 5 + oszlop - 1;
+        let jobbIndex = sor * 5 + oszlop + 1;
+
+ 
+        szomszedotSzinez(felsoIndex);
+        szomszedotSzinez(alsoIndex);
+        szomszedotSzinez(balIndex);
+        szomszedotSzinez(jobbIndex);
     });
 }
 
 
 
-function negyzetgeneralas(){
-    const Mezo = $("#palya")
-
-    for (let i=0; i<25; i++){
-        $(Mezo).append(`<div class="kocka${i} kocka"><p>${i}</p><br></div>`);
-        
+function szomszedotSzinez(index) {
+    if (index >= 0 && index < 25) {
+        $(".kocka").eq(index).toggleClass("kockaValtozott");
     }
 }
 
 
-szinValtas(".kocka2")
+
+
+
+
+
+
+function ujKor() {
+    const kezelesDiv = $(".kezeles");
+    kezelesDiv.html(`<button class="ujKor">Új kör</button>`);
+    $(".ujKor").on("click", function() {
+        $(".kocka").removeClass("kockaValtozott");
+    });
+}
+
+
+
+
+// lepesSzamlalo
+// stopper játékmérése
+// uj jateknel mindig negyzet-színvaltas
+// legyen reszponziv
+// legyen valid
+
