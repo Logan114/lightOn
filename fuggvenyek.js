@@ -1,15 +1,11 @@
-$("load", function () {
-    negyzetGeneralas();
-    kattintas();
-    ujKor();
-});
 
 
 
 
 
+// Pálya létrehozása
 
-function negyzetGeneralas(){
+export function negyzetGeneralas(){
     const mezo = $("#palya")
 
     for (let i=0; i<25; i++){
@@ -24,9 +20,9 @@ function negyzetGeneralas(){
 
 
 
+// Pálya életre keltése
 
-
-function kattintas() {
+export function kattintas() {
     $(".kocka").on("click", function() {
         $(this).toggleClass("kockaValtozott");
         
@@ -50,12 +46,10 @@ function kattintas() {
     });
 }
 
-
+// Szomszédos négyzetek színváltásához
 
 function szomszedotSzinez(index) {
-    if (index >= 0 && index < 25) {
-        $(".kocka").eq(index).toggleClass("kockaValtozott");
-    }
+    $(".kocka").eq(index).toggleClass("kockaValtozott");
 }
 
 
@@ -63,17 +57,41 @@ function szomszedotSzinez(index) {
 
 
 
+// Játék újrakezdése
 
-
-function ujKor() {
+export function ujKor() {
     const kezelesDiv = $(".kezeles");
     kezelesDiv.html(`<button class="ujKor">Új kör</button>`);
-    $(".ujKor").on("click", function() {
+
+    $(".ujKor").on("click", function() { 
         $(".kocka").removeClass("kockaValtozott");
     });
 }
 
 
+
+
+// Pálya méretének megadása
+
+export function hanyszorHany() {
+    const kezelesDiv = $(".kezeles");
+    kezelesDiv.append(`<button class="hanyszorHany">Méretállítás</button>`);
+
+    $(".hanyszorHany").on("click", function() { 
+        // méret átállítás
+    });
+}
+
+
+
+
+
+/* ------------------------  Megjegyzések  ------------------------*/
+
+// randomizáció kezdéskor
+// n*n-s legyen
+// oldalt ne színeződjön be
+// dokumentaciot irni, online van egy pelda (mindenkinek kell egy sajátot írnia)
 
 
 // lepesSzamlalo

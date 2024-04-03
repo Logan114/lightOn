@@ -1,4 +1,7 @@
 * {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
     font-family:"Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: white;
 }
@@ -35,9 +38,17 @@ p {
     font-size: 1.2em;
 }
 
-.ujKor {
-    width: 25%;
-    height: 15%;
+.kezeles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid white;
+}
+
+.ujKor, .hanyszorHany {
+    width: 35%;
+    height: 35%;
     border: 4px solid #00ccff;
     background-color: black;
     border-radius: 20px;
@@ -46,11 +57,10 @@ p {
     font-weight: 500;
     cursor: pointer;
     fill: transparent;
-    margin: 35%;
-    transition: all 250ms; 
+    transition: all 250ms;
 }
 
-.ujKor:hover {
+.ujKor:hover, .hanyszorHany:hover {
     transform: scale(1.1);
     transition: all 1s; 
     background-color: darkslategrey;
