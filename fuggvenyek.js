@@ -59,6 +59,7 @@ export function hanyszorHany() {
   });
 }
 
+// Lépészszámláló
 let klikk = 0;
 export function kattintasSzamlalo() {
   const szamlalo = $(".szamlalo");
@@ -69,6 +70,7 @@ export function kattintasSzamlalo() {
   });
 }
 
+// Stopper
 let eltelt = 0;
 let elteltPerc = 0;
       
@@ -76,22 +78,24 @@ export function stopperSzamolas() {
   setInterval(function () {
     if (elkezdodott) {
       eltelt += 1;
+      stopperKiiras()
       if (eltelt == 60){
         elteltPerc += 1;
         eltelt = 0
       }
-      stopperKiiras()
     }
-  }, 100); /*másodpercenként hozzáad az eltelthez 1-et */
+  }, 1000); /*másodpercenként hozzáad az eltelthez 1-et */
 }
 
-
-let stopperSzoveg = `<p>${eltelt} másodperc telt el</p>`
+let stopperSzoveg;
 function stopperKiiras() {
   const stopperHtml = $(".stopper");
-  stopperSzamolas()
-  if (eltelt>60){
-    stopperSzoveg = `<p>${elteltPerc} és ${eltelt} másodperc telt el</p>`
+  if (elteltPerc > 1){
+
+    stopperSzoveg =`<p>${elteltPerc} perc és ${eltelt} másodperc telt el</p>`;
+  }
+  else{
+    stopperSzoveg = `<p>${eltelt} másodperc telt el</p>`
   }
   stopperHtml.html(stopperSzoveg);
 }
@@ -107,8 +111,8 @@ export function stopperMeghivas() {
 // oldalt ne színeződjön be
 // dokumentaciot irni, online van egy pelda (mindenkinek kell egy sajátot írnia)
 
-// lepesSzamlalo
-// stopper játékmérése
+// lepesSzamlalo --keész--
+// stopper játékmérése --kész--
 // uj jateknel mindig negyzet-színvaltas
 // legyen reszponziv
 // legyen valid
