@@ -1,5 +1,5 @@
 
-import { negyzetGeneralas, kattintas, ujKor, hanyszorHany, kattintasSzamlalo } from "./fuggvenyek.js"
+import { negyzetGeneralas, kattintas, ujKor, hanyszorHany, kattintasSzamlalo, stopperMeghivas } from "./fuggvenyek.js"
 
 
 
@@ -8,3 +8,4 @@ kattintas();
 ujKor();
 hanyszorHany();
 kattintasSzamlalo()
+stopperMeghivas()
