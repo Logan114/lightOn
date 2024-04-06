@@ -6,10 +6,11 @@
 // Pálya létrehozása
 
 export function negyzetGeneralas(){
+    
     const mezo = $("#palya")
-
     for (let i=0; i<25; i++){
         mezo.append(`<div class="kocka${i} kocka"><p>${i}</p><br></div>`);
+       
     }
 }
 
@@ -25,24 +26,23 @@ export function negyzetGeneralas(){
 export function kattintas() {
     $(".kocka").on("click", function() {
         $(this).toggleClass("kockaValtozott");
-        
         let index = $(this).index();
-
-
+        
         let sor = Math.floor(index / 5);
         let oszlop = index % 5;
-
+        
         
         let felsoIndex = (sor - 1) * 5 + oszlop;
         let alsoIndex = (sor + 1) * 5 + oszlop;
         let balIndex = sor * 5 + oszlop - 1;
         let jobbIndex = sor * 5 + oszlop + 1;
-
- 
+        
+        
         szomszedotSzinez(felsoIndex);
         szomszedotSzinez(alsoIndex);
         szomszedotSzinez(balIndex);
         szomszedotSzinez(jobbIndex);
+
     });
 }
 
@@ -84,7 +84,17 @@ export function hanyszorHany() {
 
 
 
+export function kattintasSzamlalo(){
+    let klikk = 0;
+    const szamlalo = $(".szamlalo")
+    $(".kocka").on("click", function(){
+        
+        klikk +=1
+        szamlalo.html(`<p>Kattintások száma:${klikk}</p>`)
+        console.log(klikk)
 
+    });
+}
 
 /* ------------------------  Megjegyzések  ------------------------*/
 
