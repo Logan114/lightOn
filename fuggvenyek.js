@@ -73,15 +73,15 @@ export function kattintasSzamlalo() {
 // Stopper
 let eltelt = 0;
 let elteltPerc = 0;
-      
+
 export function stopperSzamolas() {
   setInterval(function () {
     if (elkezdodott) {
       eltelt += 1;
-      stopperKiiras()
-      if (eltelt == 60){
+      stopperKiiras();
+      if (eltelt == 60) {
         elteltPerc += 1;
-        eltelt = 0
+        eltelt = 0;66
       }
     }
   }, 1000); /*másodpercenként hozzáad az eltelthez 1-et */
@@ -90,18 +90,15 @@ export function stopperSzamolas() {
 let stopperSzoveg;
 function stopperKiiras() {
   const stopperHtml = $(".stopper");
-  if (elteltPerc > 1){
-
-    stopperSzoveg =`<p>${elteltPerc} perc és ${eltelt} másodperc telt el</p>`;
-  }
-  else{
-    stopperSzoveg = `<p>${eltelt} másodperc telt el</p>`
+  if (elteltPerc > 1) {
+    stopperSzoveg = `<p>${elteltPerc} perc és ${eltelt} másodperc telt el</p>`;
+  } else {
+    stopperSzoveg = `<p>${eltelt} másodperc telt el</p>`;
   }
   stopperHtml.html(stopperSzoveg);
 }
 export function stopperMeghivas() {
-  
-  stopperSzamolas()
+  stopperSzamolas();
 }
 
 /* ------------------------  Megjegyzések  ------------------------*/
