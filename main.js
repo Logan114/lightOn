@@ -1,5 +1,14 @@
 
-import { negyzetGeneralas, kattintas, ujKor, hanyszorHany, kattintasSzamlalo, stopperMeghivas } from "./fuggvenyek.js"
+import {
+        negyzetGeneralas,
+        kattintas,
+        ujKor,
+        hanyszorHany,
+        kattintasSzamlalo,
+        stopperMeghivas,
+        randomizacio
+        }
+          from "./fuggvenyek.js"
 
 
 
@@ -7,5 +16,6 @@ negyzetGeneralas();
 kattintas();
 ujKor();
 hanyszorHany();
-kattintasSzamlalo()
-stopperMeghivas()
+kattintasSzamlalo();
+stopperMeghivas();
+randomizacio();
