@@ -141,7 +141,7 @@ let stopperSzoveg;
 
 function stopperKiiras() {
   const stopperHtml = $(".stopper");
-  if (elteltPerc > 1) {
+  if (elteltPerc > 0) {
     stopperSzoveg = `<p>${elteltPerc} perc és ${eltelt} másodperc telt el</p>`;
   } else {
     stopperSzoveg = `<p>${eltelt} másodperc telt el</p>`;
