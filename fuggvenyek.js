@@ -34,6 +34,8 @@ export function kattintas() {
     if (sor < meretSzam - 1) szomszedotSzinez(alsoIndex);
     if (oszlop > 0) szomszedotSzinez(balIndex);
     if (oszlop < meretSzam - 1) szomszedotSzinez(jobbIndex);
+
+    //nyertesKiir();
   });
 }
 
@@ -60,6 +62,7 @@ export function ujKor() {
     $(".kocka").removeClass("kockaValtozott");
     eltelt = 0;
     elteltPerc = 0;
+    randomizacio();
     klikk = 0;
     const szamlalo = $(".szamlalo");
     szamlalo.html(`<p>Kattintások száma: 0</p>`);
@@ -94,15 +97,18 @@ export function hanyszorHany() {
     palya.style.gridTemplateColumns = grid;
 
 
-    const kockaElements = document.querySelectorAll('.kocka');
-    kockaElements.forEach((kocka) => {
+    const kocka = document.querySelectorAll('.kocka');
+    kocka.forEach((kocka) => {
       kocka.style.width = '100%';
       kocka.style.height = '7em';
     });
     
-    //kezelesDiv.style.gap = '3px'; még nem mükszik
+    //kezelesDiv.style.gap = '30px'; még nem mükszik
 
     randomizacio();
+    klikk = 0;
+    const szamlalo = $(".szamlalo");
+    szamlalo.html(`<p>Kattintások száma: 0</p>`);
   });
 }
 
@@ -112,7 +118,8 @@ export function hanyszorHany() {
 
 
 // Lépészszámláló
-let klikk = 0;
+//let klikk = 0;
+let klikk = -5; // Mert 5x random kattintunk a randomizácio miatt és így lesz 0 kezdéskor
 export function kattintasSzamlalo() {
   const szamlalo = $(".szamlalo");
   $("#palya").on("click", ".kocka", function () { // A későbbi méretváltoztatások miatt szükséges
@@ -159,27 +166,52 @@ export function stopperMeghivas() {
 
 
 
-
+// Pálya négyzeteinek színének megkeverése
 
 export function randomizacio() {
-  const randSor = Math.floor(Math.random() * meretSzam);
-  const randOszlop = Math.floor(Math.random() * meretSzam);
+  for (let i = 0; i < 5; i++) {
+    const randSor = Math.floor(Math.random() * meretSzam);
+    const randOszlop = Math.floor(Math.random() * meretSzam);
 
-  
-  const randIndex = randSor * meretSzam + randOszlop;
-  const randNegyzet = document.querySelector(`.kocka${randIndex}`);
+    
+    const randIndex = randSor * meretSzam + randOszlop;
+    const randNegyzet = document.querySelector(`.kocka${randIndex}`);
 
-  if (randNegyzet) {
-    randNegyzet.click();
+    if (randNegyzet) {
+      randNegyzet.click();
+    }
   }
-  
+}
+
+
+
+// NEM MUKODIK MÉG
+function nyertesKiir() {
+  if (klikk > 0) {
+    let nyert = false;
+    for (let i = 0; i < Math.pow(meretSzam, 2); i++) {
+      if (!$(".kocka").eq(i).hasClass('kockaValtozott')) {
+        nyert = true;
+        break;
+      }
+    }
+
+    if (nyert) {
+      alert("Nyertél! :) Jutalmad + 7-IQ pont");
+    } else {
+      console.log("Még nincs vége");
+    }
+  } else {
+    console.log("A játék még nem kezdődött el");
+  }
 }
 
 
 
 /* ------------------------  Megjegyzések  ------------------------*/
 
-// randomizáció kezdéskor
+// Kiirajtuk ha nyert
+// randomizáció kezdéskor --kész--
 // n*n-s legyen --kész--
 // oldalt ne színeződjön be --kész--
 // dokumentaciot irni, online van egy pelda (mindenkinek kell egy sajátot írnia)
