@@ -86,7 +86,6 @@ export function hanyszorHany() {
   $(".hanyszorHany").on("click", function () {
     meretSzam = meretSzam === 3 ? 5 : 3; // ha 3 akkor 5 lesz, ha 3 akkor 5 lesz
 
-
     const palya = document.querySelector('#palya');
     palya.innerHTML = ''; // Azért töröljük mert már új a meretSzam-unk és mást kell legenerálnia, új változó értékkel
     negyzetGeneralas();
@@ -96,22 +95,29 @@ export function hanyszorHany() {
     }
     palya.style.gridTemplateColumns = grid;
 
-
     const kocka = document.querySelectorAll('.kocka');
     kocka.forEach((kocka) => {
       kocka.style.width = '100%';
       kocka.style.height = '7em';
     });
-    
-    //kezelesDiv.style.gap = '30px'; még nem mükszik
 
+    eltelt = 0;
+    elteltPerc = 0;
     randomizacio();
     klikk = 0;
     const szamlalo = $(".szamlalo");
     szamlalo.html(`<p>Kattintások száma: 0</p>`);
+
+
+    if (meretSzam === 3) {
+      palya.style.maxWidth = '400px';
+      palya.style.margin = '0% 20%';
+    } else {
+      palya.style.maxWidth = '600px';
+      palya.style.margin = '0% 0%';
+    }
   });
 }
-
 
 
 
@@ -125,7 +131,7 @@ export function kattintasSzamlalo() {
   $("#palya").on("click", ".kocka", function () { // A későbbi méretváltoztatások miatt szükséges
     klikk += 1;
     elkezdodott = true;
-    szamlalo.html(`<p>Kattintások száma: ${klikk}</p>`);
+    szamlalo.html(`<br><br><p>Kattintások száma: ${klikk}</p>`);
   });
 }
 
@@ -150,9 +156,9 @@ let stopperSzoveg;
 function stopperKiiras() {
   const stopperHtml = $(".stopper");
   if (elteltPerc > 0) {
-    stopperSzoveg = `<p>${elteltPerc} perc és ${eltelt} másodperc telt el</p>`;
+    stopperSzoveg = `<br><br><p>${elteltPerc} perc és ${eltelt} másodperc telt el</p>`;
   } else {
-    stopperSzoveg = `<p>${eltelt} másodperc telt el</p>`;
+    stopperSzoveg = `<br><br><p>${eltelt} másodperc telt el</p>`;
   }
   stopperHtml.html(stopperSzoveg);
 }
@@ -191,13 +197,15 @@ function nyertesKiir() {
     let nyert = false;
     for (let i = 0; i < Math.pow(meretSzam, 2); i++) {
       if (!$(".kocka").eq(i).hasClass('kockaValtozott')) {
-        nyert = true;
-        break;
+        console.log("kattintott kocka:",$(".kocka").eq(i));
+        //nyert = true;
+        //break;
       }
     }
 
+
     if (nyert) {
-      alert("Nyertél! :) Jutalmad + 7-IQ pont");
+      alert("Nyertél! :) Jutalmad + 7-IQ pont"); // Idő kiiratása hogy mennyi idő alatt rakta ki
     } else {
       console.log("Még nincs vége");
     }
@@ -218,6 +226,6 @@ function nyertesKiir() {
 
 // lepesSzamlalo --kész--
 // stopper játékmérése --kész--
-// uj jateknel mindig negyzet-színvaltas
+// uj jateknel mindig negyzet-színvaltas --kész--
 // legyen reszponziv
 // legyen valid
