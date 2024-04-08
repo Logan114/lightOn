@@ -1,4 +1,5 @@
-
+let eltelt = 0;
+let elteltPerc = 0;
 let elkezdodott = false;
 
 
@@ -58,6 +59,7 @@ export function ujKor() {
   kezelesDiv.on("click", ".ujKor", function () {   //a .kezeles HTML-tartalmát a függvény minden egyes meghívásakor egy új gombra cseréli. Ez a megközelítés eltávolítja az előző gombhoz csatolt eseménykezelőket.
     $(".kocka").removeClass("kockaValtozott");
     eltelt = 0;
+    elteltPerc = 0;
     klikk = 0;
     const szamlalo = $(".szamlalo");
     szamlalo.html(`<p>Kattintások száma: 0</p>`);
@@ -121,8 +123,7 @@ export function kattintasSzamlalo() {
 }
 
 // Stopper
-let eltelt = 0;
-let elteltPerc = 0;
+
 
 export function stopperSzamolas() {
   setInterval(function () {
